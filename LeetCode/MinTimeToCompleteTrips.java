@@ -2,32 +2,57 @@ package LeetCode;
 
 public class MinTimeToCompleteTrips 
 {
+   
     public static void main(String[] args) 
     {
-        int time[] = {1,2,3}; 
+        int[] time = {1, 2, 3};
         int totalTrips = 5;
 
-        int result = MinTime(time, totalTrips);
+        long result = minTime(time, totalTrips);
         System.out.println(result);
-        
     }
 
-    static int MinTime(int time[],int totalTrips)
+    static long minTime(int[] time, int totalTrips)
     {
-        int count = 1;
-
-        while(totalTrips>0)
+        // Find the minimum time taken by a single bus
+        int minTime = Integer.MAX_VALUE;
+        for (int t : time)
         {
-            for(int i=0;i<time.length;i++)
-            {
-                totalTrips-=time[i];
-                count++;
-            }
-
+            minTime = Math.min(minTime, t);
         }
-        return count+1;
-        
 
+        long start = 1;
+        long end = (long) minTime * totalTrips;
+
+        while (start < end)
+        {
+            long mid = start + (end - start) / 2;
+
+            if (canCompleteTrips(time, mid, totalTrips))
+            {
+                end = mid;
+            }
+            else
+            {
+                start = mid + 1;
+            }
+        }
+        return start;
     }
-    
+
+    static boolean canCompleteTrips(int[] time, long currentTime, int totalTrips)
+    {
+        long trips = 0;
+
+        for (int t : time)
+        {
+            trips += currentTime / t;
+            if (trips >= totalTrips)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
+
