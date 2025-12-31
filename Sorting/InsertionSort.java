@@ -14,8 +14,14 @@ public class InsertionSort
             arr[j] = temp;  
             j--;
          }
-         System.out.print(arr[j]+",");
+      
       }
+      for(int a : arr)
+      {
+         System.out.print(a+" ");
+      }
+      
    }
+
    
 }
