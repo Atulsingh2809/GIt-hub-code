@@ -1,50 +1,38 @@
 package LeetCode;
+import java.util.*;
 
 public class CheckPrime 
 {
     public static void main(String[] args) 
     {
-        int n =10;
-
-        System.out.println(countPrimes(n));
+        int n =100;
+        checkPrime(n);
     
         
     }
 
-  
-    static int countPrimes(int n) 
+    static void checkPrime(int n)
     {
-        if (n <= 2) return 0;
+        int count =0;
 
-        boolean[] isPrime = new boolean[n];
-        
-        // Assume all numbers are prime initially
-        for (int i = 2; i < n; i++) 
+        for(int i=2;i<=Math.sqrt(n);i++)
         {
-            isPrime[i] = true;
-        }
-
-        // Sieve of Eratosthenes
-        for (int i = 2; i * i < n; i++) 
-        {
-            if (isPrime[i]) 
+            if(n%i == 0)
             {
-                for (int j = i * i; j < n; j += i) 
-                {
-                    isPrime[j] = false;
-                }
+                count++;
             }
         }
-
-        // Count primes
-        int count = 0;
-        for (int i = 2; i < n; i++) 
+        if(count == 0)
         {
-            if (isPrime[i]) count++;
+            System.out.println("no is prime");
         }
-
-        return count;
+        else
+        {
+            System.out.println("no is not prime");
+        }
     }
+  
+   
 
 
 
