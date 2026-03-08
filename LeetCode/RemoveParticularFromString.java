@@ -4,14 +4,8 @@ public class RemoveParticularFromString
 {
     public static void main(String[] args) 
     {
-        String str1 = "baccad";
-        
-        String rs = doFilter(str1);
-        System.out.println(rs);
-
-        
-
-        
+        String str1 = "bcgdappledf";
+        System.out.println(doFilter(str1));       
     }
 
     public static String doFilter(String str1)
