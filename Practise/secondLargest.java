@@ -13,7 +13,8 @@ public class secondLargest
             Scanner scan = new Scanner(System.in);
             arr[i] = scan.nextInt();
         }
-           System.out.println(SecLargest(arr));
+        System.out.println();
+        System.out.println(SecLargest(arr));
        
         
     }
