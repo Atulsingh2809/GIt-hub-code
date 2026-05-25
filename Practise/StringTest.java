@@ -4,8 +4,8 @@ public class StringTest
 {
     public static void main(String[] args) 
     {
-        String a = new String("ATUL");
-        String b = new String("ATUL");
+        // String a = new String("ATUL");
+        // String b = new String("ATUL");
 
         String c = "kunal";
         String d = "kunal";
