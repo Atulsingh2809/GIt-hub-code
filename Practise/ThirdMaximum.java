@@ -8,7 +8,6 @@ class ThirdMaximum
 
         System.out.println(ThirdMax(arr));
         
-
     }
 
     static int ThirdMax(int arr[])
